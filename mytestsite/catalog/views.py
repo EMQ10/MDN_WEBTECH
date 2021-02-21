@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from django.views import generic
 # Create your views here.
 from django.http import HttpResponse
 
@@ -30,3 +30,12 @@ def index(request):
 
     # Render the HTML template index.html with the data in the context variable
     return render(request, 'catalog/index.html', context=context)
+
+
+
+class BookListView(generic.ListView):
+    model = Book
+    paginate_by = 2
+
+class BookDetailView(generic.DetailView):
+    model = Book
