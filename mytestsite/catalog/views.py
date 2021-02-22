@@ -39,3 +39,12 @@ class BookListView(generic.ListView):
 
 class BookDetailView(generic.DetailView):
     model = Book
+
+#Generic class-based view for a list of authors.
+class AuthorListView(generic.ListView):
+    model = Author
+    paginate_by = 5
+
+#Generic class-based view for an author.
+class AuthorDetailView(generic.DetailView):
+    model = Author
