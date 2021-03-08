@@ -3,6 +3,7 @@ from django.views import generic
 # Create your views here.
 from django.http import HttpResponse
 
+
 from catalog.models import Book, Author, BookInstance, Genre
 
 #def index(request):
@@ -37,10 +38,9 @@ def index(request):
     return render(request, 'catalog/index.html', context=context)
 
 
-
 class BookListView(generic.ListView):
     model = Book
-    paginate_by = 10
+    paginate_by = 2
 
 class BookDetailView(generic.DetailView):
     model = Book
@@ -48,7 +48,7 @@ class BookDetailView(generic.DetailView):
 #Generic class-based view for a list of authors.
 class AuthorListView(generic.ListView):
     model = Author
-    paginate_by = 5
+    paginate_by = 2
 
 #Generic class-based view for an author.
 class AuthorDetailView(generic.DetailView):
